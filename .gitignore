@@ -1,0 +1,11 @@
+._*
+__pycache__
+Histograms
+PairPlots
+resources
+ScatterPlots
+*.pdf
+*.csv
+*.dat
+PerformancePlots.png
+correction.txt
