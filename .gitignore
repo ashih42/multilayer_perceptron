@@ -4,7 +4,8 @@ Histograms
 PairPlots
 ScatterPlots
 *.pdf
-*.csv
+data_test.csv
+data_training.csv
 *.dat
 PerformancePlots.png
 correction.txt
