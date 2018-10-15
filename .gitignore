@@ -1,11 +1,11 @@
 ._*
+*.pdf
 __pycache__
 Histograms
 PairPlots
 ScatterPlots
-*.pdf
 data_test.csv
 data_training.csv
-*.dat
+param.dat
 PerformancePlots.png
 correction.txt
