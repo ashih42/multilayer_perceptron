@@ -1,4 +1,4 @@
-# (☞ﾟヮﾟ)☞  PREDICTION.PY
+# (☞ﾟヮﾟ)☞  SEPARATE_AND_TRAIN.PY
 
 from NeuralNetwork import NeuralNetwork
 from exceptions import ParserException
@@ -7,16 +7,19 @@ import sys
 
 def main():
 	# check argv
-	if len(sys.argv) != 3:
-		print('usage: ' + Fore.RED + 'python3' + Fore.BLUE + ' prediction.py ' + Fore.RESET + \
-			'param.dat prediction_data.csv')
+	if len(sys.argv) < 2:
+		print('usage: ' + Fore.RED + 'python3' + Fore.BLUE + ' separate_and_train.py ' + Fore.RESET + \
+			'data.csv [-o]')
 		sys.exit(-1)
-	param_filename = sys.argv[1]
-	prediction_filename = sys.argv[2]
+	data_filename = sys.argv[1]
+	do_online = False
+	if len(sys.argv) == 3:
+		do_online = sys.argv[2] == '-o'
 
 	try:
-		neural_network = NeuralNetwork(param_filename)
-		neural_network.predict(prediction_filename)
+		neural_network = NeuralNetwork()
+		neural_network.separate_data_and_train(data_filename, do_online)
+		neural_network.save_param_to_file('param.dat')
 	except IOError as e:
 		print(Style.BRIGHT + Fore.RED + 'I/O Error: ' + Style.RESET_ALL + Fore.RESET + str(e))
 	except ParserException as e:

@@ -26,7 +26,7 @@ class NeuralNetwork:
 	__SHOW_PLOTS = os.getenv('MP_PLOTS') == 'TRUE'
 
 	def __init__(self, param_filename=None):
-		if param_file is None:
+		if param_filename is None:
 			self.__initialize_random_theta()
 		else:
 			self.__load_param_from_file(param_filename)
@@ -173,12 +173,44 @@ class NeuralNetwork:
 		prediction_loss, prediction_error = self.__compute_cost_error(X, Y)
 		print('Prediction Loss: %.5f, Prediction Error: %d' % (prediction_loss, prediction_error))
 
+	def __separate_data(self, data_filename):
+		data_analyzer = DataAnalyzer(data_filename)
+		self.mean_list = data_analyzer.get_mean_list()
+		self.stdev_list = data_analyzer.get_stdev_list()
+		
+		# feature scale, and add column of 1s to X
+		all_X = data_analyzer.X
+		all_X = self.__apply_feature_scaling(all_X)
+		all_X = np.c_[np.ones(all_X.shape[0]), all_X]
+		all_Y = data_analyzer.Y
+		all_data = np.c_[all_X, all_Y]
+
+		np.random.shuffle(all_data)
+		split_row_index = int(all_data.shape[0] * 0.8)	# top 80% of rows will be for training
+
+		training_data = all_data[:split_row_index, :]
+		validation_data = all_data[split_row_index:, :]
+
+		self.training_X = training_data[:, :-1]
+		self.training_Y = training_data[:, -1]
+		self.training_Y = self.training_Y.reshape(self.training_Y.shape[0], 1)
+
+		self.validation_X = validation_data[:, :-1]
+		self.validation_Y = validation_data[:, -1]
+		self.validation_Y = self.validation_Y.reshape(self.validation_Y.shape[0], 1)
+
+	def separate_data_and_train(self, data_filename, do_online):
+		self.__separate_data(data_filename)
+		self.__init_plots()
+		self.__start_training(do_online)
 
 	def train(self, training_filename, validation_filename, do_online):
 		self.__init_training_data(training_filename)
 		self.__init_validation_data(validation_filename)
 		self.__init_plots()
+		self.__start_training(do_online)
 
+	def __start_training(self, do_online):
 		if do_online:
 			self.V_1 = np.zeros(self.Theta_1.shape)
 			self.V_2 = np.zeros(self.Theta_2.shape)
