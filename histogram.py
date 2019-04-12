@@ -1,4 +1,4 @@
-# (☞ﾟヮﾟ)☞  DESCRIBE.PY
+# (☞ﾟヮﾟ)☞  histogram.py data.csv
 
 from data_analyzer import DataAnalyzer
 from exceptions import ParserException

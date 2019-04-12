@@ -1,4 +1,4 @@
-# (☞ﾟヮﾟ)☞  PREDICTION.PY
+# (☞ﾟヮﾟ)☞  predict.py param.dat data.csv
 
 from neural_network import NeuralNetwork
 from exceptions import ParserException
@@ -9,8 +9,8 @@ import sys
 def main():
 	# check argv
 	if len(sys.argv) != 3:
-		print('usage: ' + Fore.RED + 'python3' + Fore.BLUE + ' prediction.py ' + Fore.RESET + \
-			'param.dat prediction_data.csv')
+		print('usage: ' + Fore.RED + 'python3' + Fore.BLUE + ' predict.py ' + Fore.RESET + \
+			'param.dat data.csv')
 		sys.exit(-1)
 	param_filename = sys.argv[1]
 	prediction_filename = sys.argv[2]

@@ -1,4 +1,4 @@
-# (☞ﾟヮﾟ)☞  TRAINING.PY
+# (☞ﾟヮﾟ)☞  train.py training.csv validation.csv [ -o ]
 
 from neural_network import NeuralNetwork
 from exceptions import ParserException
@@ -9,7 +9,7 @@ import sys
 def main():
 	# check argv
 	if len(sys.argv) < 3:
-		print('usage: ' + Fore.RED + 'python3' + Fore.BLUE + ' training.py ' + Fore.RESET + \
+		print('usage: ' + Fore.RED + 'python3' + Fore.BLUE + ' train.py ' + Fore.RESET + \
 			'training_data.csv validation_data.csv [-o]')
 		sys.exit(-1)
 	training_filename = sys.argv[1]

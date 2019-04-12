@@ -32,6 +32,7 @@ def writeToCsv(path, content, labels):
         if labels is not None:
             content.insert(0, labels)
         writer.writerows(content)
+        print('Generated ' + path)
 
 def splitList(content, cut):
     ''' splits an array in two.
@@ -75,7 +76,9 @@ def splitDataset(path, cut=0.2, label=False, shuffle=False):
     writeToCsv(filename + '_training.csv', trainingset, labels)
 
 
-dataset_url = 'https://projects.intra.42.fr/uploads/document/document/464/data.csv'
-filepath = './data.csv'
-os.system('curl -s -o {1} {0}'.format(dataset_url, filepath))
+# dataset_url = 'https://projects.intra.42.fr/uploads/document/document/464/data.csv'
+# filepath = './data.csv'
+# os.system('curl -s -o {1} {0}'.format(dataset_url, filepath))
+
+filepath = 'data/data.csv'
 splitDataset(filepath, cut=0.25, label=False, shuffle=True)

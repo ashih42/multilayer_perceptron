@@ -1,4 +1,4 @@
-# (☞ﾟヮﾟ)☞  SCATTER_PLOT.PY
+# (☞ﾟヮﾟ)☞  scatter_plot.py data.csv
 
 from data_analyzer import DataAnalyzer
 from exceptions import ParserException

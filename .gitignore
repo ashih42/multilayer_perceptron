@@ -1,5 +1,5 @@
+.DS_Store
 ._*
-*.pdf
 __pycache__
 Histograms
 PairPlots
@@ -8,4 +8,3 @@ data_test.csv
 data_training.csv
 param.dat
 PerformancePlots.png
-correction.txt

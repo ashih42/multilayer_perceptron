@@ -1,4 +1,4 @@
-# (☞ﾟヮﾟ)☞  PAIR_PLOT.PY
+# (☞ﾟヮﾟ)☞  pair_plot.py data.csv
 
 from data_analyzer import DataAnalyzer
 from exceptions import ParserException
