@@ -1,3 +1,3 @@
 #!/bin/sh
 
-rm -rf ._* Histograms ScatterPlots PairPlots *.dat data_training.csv data_test.csv PerformancePlots.png
+rm -rf ._* Histograms ScatterPlots PairPlots param.dat data/data_training.csv data/data_test.csv PerformancePlots.png
