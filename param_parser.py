@@ -1,4 +1,5 @@
 from exceptions import ParserException
+
 from colorama import Fore, Back, Style
 
 class ParamParser:

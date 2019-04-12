@@ -1,6 +1,7 @@
-from DataAnalyzer import DataAnalyzer
-from ValidationDataParser import ValidationDataParser
-from ParamParser import ParamParser
+from data_analyzer import DataAnalyzer
+from validation_data_parser import ValidationDataParser
+from param_parser import ParamParser
+
 from colorama import Fore, Back, Style
 import matplotlib.pyplot as plt
 import numpy as np

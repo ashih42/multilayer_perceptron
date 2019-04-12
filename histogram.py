@@ -1,7 +1,8 @@
 # (☞ﾟヮﾟ)☞  DESCRIBE.PY
 
-from DataAnalyzer import DataAnalyzer
+from data_analyzer import DataAnalyzer
 from exceptions import ParserException
+
 from colorama import Fore, Back, Style
 import sys
 

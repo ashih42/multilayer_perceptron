@@ -1,7 +1,8 @@
 # (☞ﾟヮﾟ)☞  SEPARATE_AND_TRAIN.PY
 
-from NeuralNetwork import NeuralNetwork
+from neural_network import NeuralNetwork
 from exceptions import ParserException
+
 from colorama import Fore, Back, Style
 import sys
 

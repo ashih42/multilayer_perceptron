@@ -1,5 +1,6 @@
-from TrainingDataParser import TrainingDataParser
-from Description import Description
+from training_data_parser import TrainingDataParser
+from description import Description
+
 from colorama import Fore, Back, Style
 import matplotlib.pyplot as plt
 import numpy as np
